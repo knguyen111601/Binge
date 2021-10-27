@@ -3,19 +3,43 @@
 
 ## Project Summary
 
-Tell me what you are building and what tools are you using?
+This app is going to be an app for people that love binge watching movies and shows. The app will be a way for people to search and add movies and shows to a "to-watch" list. Users will have the option to click a movie or show and read the details about it on a show page. Also, there will be options to create, edit, and delete movies or shows as the user pleases.
+
+The tools I will be using are: 
+1. Express
+2. Liquid-Express-Views
+3. Liquid
+4. dotenv
+5. Mongoose
+6. MongoDB
+7. Method-Override
+8. AJAX? Not sure as this was my idea for grabbing movies and shows like we had before
 
 ## Models
 
 List here any models in your app and their properties 
+Models I will have in my app are:
+#### Movies & Shows
+In the movies or shows model, there will be a schema that entails the details of the movie or show. This will include the poster image (if applicable), the title, and the description. 
+
+#### Connections
+This model will be the method for connecting to MongoDB and logging the events such as connecting or disconnecting. 
 
 ## Route Table
 
 List your routes in a table 
 | url | method | action |
 |-----|--------|--------|
-| /todo | get | get all todos (index)|
-| /todo/:id | get | get a particular todo (show)|
+| /towatch | get | get all movies and shows (index)|
+| /towatch/movie/:id | get | get a particular movie|
+| /towatch/show/:id | get | get a particular show |
+| /towatch/new | get | create a new movie or show |
+| /towatch/movie/:id/edit | get | edit a movie |
+| /towatch/show/:id/edit | get | edit a show |
+| /towatch/movie/:id | put | update movie |
+| /towatch/show/:id | put | update show |
+| /towatch | delete | delete movie or show |
+
 
 
 ## User Stories
