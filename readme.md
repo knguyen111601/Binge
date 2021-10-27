@@ -44,6 +44,15 @@ List your routes in a table
 
 ## User Stories
 
+-  I should see my list of shows and movies that I added on the index page..
+
+- I should see a show page for the movie or show I click on with Image, description, release date, and cast.
+
+- I should be able to add, edit, or delete movies or shows easily. 
+
+- I should be able to mark movies or shows as watched and have them move to a "watched" list
+
+
 ## Challenges 
 
 - Detail roadblocks and anything you did to overcome them whether you did or didn't
