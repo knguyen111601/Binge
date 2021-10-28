@@ -1,7 +1,46 @@
 {% layout "layout.liquid" %}
 
 {% block content %} 
-
+<link rel="stylesheet" href="/css/mylist.css">
+<div class="body">
 <h1>My list</h1>
+
+
+
+<h1 class="sections">Movies</h1>
+<div class="scroll">
+    <div class="card">
+        <a href="/binge"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Plus_symbol.svg/640px-Plus_symbol.svg.png"><h1>Add Movies</h1></a>
+    </div>
+    
+    {% for movie in movie %} 
+    {% if movie.type =="movie" %} 
+        <a href="/binge/mylist/{{movie._id}}">
+            <img class="poster" src="{{movie.img}}">
+        </a>
+        {% endif %}
+    {% endfor %}
+
+
+
+
+</div>
+
+<h1>Shows</h1>
+<div class="scroll">
+    <div class="card">
+        <a href="/binge"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Plus_symbol.svg/640px-Plus_symbol.svg.png"><h1>Add Shows</h1></a>
+    </div>
+
+    {% for movie in movie %} 
+    {% if movie.type =="show" %} 
+        <a href="/binge/mylist/{{movie._id}}">
+            <img class="poster" src="{{movie.img}}">
+        </a>
+        {% endif %}
+    {% endfor %}
+
+</div>
+</div>
 
 {% endblock%}

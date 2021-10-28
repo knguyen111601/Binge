@@ -33,16 +33,12 @@
         </li>
     </ul>
 
-    <form action="/binge/mylist" method="post">
-        <button name="id" value="{{movie._id}}">Add to Watch List</button>
-    </form>
-
         <div class="editDel">    
-        <a href="/binge/{{movie._id}}/edit">
+        <a href="/binge/mylist/{{movie._id}}/edit">
             <button>EDIT</button>
         </a>
 
-        <form action="/binge/{{movie._id}}/?_method=DELETE" method="post">
+        <form action="/binge/mylist/{{movie._id}}/?_method=DELETE" method="post">
             <button>DELETE</button>
         </form> 
         </div>

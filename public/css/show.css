@@ -1,0 +1,66 @@
+
+.body {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.title {
+    width: 50%;
+}
+
+.title img {
+    width: 70%;
+}
+
+.desc {
+    width: 50%;
+}
+
+.desc article {
+    filter:opacity(70%);
+}
+
+.desc ul {
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+    padding-left: 0;
+}
+
+.cOneImg {
+    height: 150px;
+    width: 100px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.editDel {
+    display: flex;
+    justify-content: end;
+    margin-top: 100px;
+}
+
+.editDel button{
+    background-color: transparent;
+    border: none;
+    font-size: 1em;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .body {
+        flex-direction: column;
+    }
+    .title {
+        width: 100%;
+    }
+    .title img {
+        width: 100%;
+    }
+
+    .desc {
+        width: 100%;
+    }
+}

@@ -4,6 +4,7 @@
 const express = require("express");
 const Movies = require("../models/movies.js");
 const moviesSeed = require("../models/seed.js")
+const MyList = require("../models/mylist.js")
 ////////////////////////////////////////////////////////////////////////
 // Create Router
 ////////////////////////////////////////////////////////////////////////
@@ -139,16 +140,97 @@ router.post("/search", (req, res)=>{
     })
 })
 
-router.get("/mylist", (req, res)=> {
-    res.render("mylist.liquid")
+router.get("/mylist", (req, res)=>{
+    MyList.find({username: req.session.username})
+    .then((movie)=>{
+            res.render("mylist.liquid", {movie: movie})
+    })
+})
+
+router.post("/mylist", (req,res)=>{
+    const id = req.body.id
+    Movies.findById(id)
+    .then((movie)=>{
+        const nest = {
+            title: movie.title,
+            type: movie.type,
+            releaseDate: req.body.releaseDate,
+            img: movie.img,
+            desc: movie.img,
+            director: movie.director,
+            cast: {
+                cast1: movie.cast.cast1,
+                cast2: movie.cast.cast2,
+                cast3: movie.cast.cast3
+            },
+            username: req.session.username
+        }
+        MyList.create(nest)
+        .then((movie)=>{
+            res.redirect("/binge/mylist")
+        })
+    })
+})
+
+// Delete Route
+router.delete("/mylist/:id", (req, res)=>{
+    id = req.params.id
+    MyList.findByIdAndDelete(id)
+    .then((movie)=>{
+        res.redirect("/binge/mylist")
+    })
+    .catch((error) => {
+        res.json({error})
+    })
 })
 
 
+// Edit Route
+router.get("/:id/edit", (req, res)=>{
+    const id = req.params.id
+    MyList.findById(id)
+    .then((movie)=>{
+        res.render("edit.liquid", {movie: movie})
+    })
+    .catch((error) => {
+        res.json({error})
+    })
+})
 
+// Update Route
+router.put("/mylist/:id", (req, res)=>{
+    const id = req.params.id
+    const nest = {
+        title: req.body.title,
+        type: req.body.type,
+        releaseDate: req.body.releaseDate,
+        img: req.body.img,
+        desc: req.body.img,
+        director: req.body.director,
+        cast: {
+            cast1: req.body.cast1,
+            cast2: req.body.cast2,
+            cast3: req.body.cast3
+        }
+    }
+    MyList.findByIdAndUpdate(id, nest)
+    .then((movie)=>{
+        res.redirect(`/binge/mylist/${id}`)
+    })
+    .catch((error) => {
+        res.json({error})
+    })
+})
 
-
-
-
+// My List Show Route - get request to "/binge/mylist/:id", returns the movie on your list
+router.get("/mylist/:id", (req, res)=>{
+    const id = req.params.id
+    MyList.findById(id)
+    .then((movies)=>{
+        console.log(movies)
+        res.render("mylist/show.liquid", {movie: movies})
+    })
+})
 
 // Show Route - get request to "/binge/:id, returns that particular movie or show
 router.get("/:id", (req, res)=>{
