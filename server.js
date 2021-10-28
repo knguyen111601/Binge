@@ -7,7 +7,9 @@ const morgan = require("morgan");
 const methodOverride = require("method-override");
 const path = require("path");
 const BingeRouter = require("./controllers/binge.js");
-
+const UserRouter = require("./controllers/user.js")
+const session = require("express-session")
+const MongoStore = require("connect-mongo")
 ////////////////////////////////////////////////////////////////////////
 // App Object
 ////////////////////////////////////////////////////////////////////////
@@ -31,15 +33,22 @@ app.use(methodOverride("_method"));
 app.use(express.urlencoded({extended: true}));
 // setup public folder to server files statically
 app.use(express.static("public"));
-
+// Middleware to create sessions (req.session)
+app.use(session({
+    secret: process.env.SECRET,
+    store: MongoStore.create({mongoUrl: process.env.DATABASE_URL}),
+    resave: false
+}))
 ////////////////////////////////////////////////////////////////////////
 // Routes (router)
 ////////////////////////////////////////////////////////////////////////
 app.get("/", (req, res)=>{
-    res.send("this app is working")
+    res.render("user/index.liquid")
 })
 
 app.use("/binge", BingeRouter);
+
+app.use("/user", UserRouter)
 
 ////////////////////////////////////////////////////////////////////////
 // Listener 

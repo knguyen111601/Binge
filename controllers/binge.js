@@ -9,6 +9,20 @@ const moviesSeed = require("../models/seed.js")
 ////////////////////////////////////////////////////////////////////////
 const router = express.Router();
 
+/////////////////////////////////
+// Router Middleware
+/////////////////////////////////
+// middleware to check if user is logged in
+router.use((req, res, next)=>{
+    // check if logged in 
+    if (req.session.loggedIn) {
+        // send to routes
+        next()
+    } else {
+        res.redirect("/user/login")
+    }
+})
+
 ////////////////////////////////////////////////////////////////////////
 // Routes
 ////////////////////////////////////////////////////////////////////////
@@ -124,6 +138,17 @@ router.post("/search", (req, res)=>{
         res.json({error})
     })
 })
+
+router.get("/mylist", (req, res)=> {
+    res.render("mylist.liquid")
+})
+
+
+
+
+
+
+
 
 // Show Route - get request to "/binge/:id, returns that particular movie or show
 router.get("/:id", (req, res)=>{
