@@ -1,0 +1,29 @@
+////////////////////////////////////////////////////////////////
+// Import our Dependencies 
+////////////////////////////////////////////////////////////////
+
+require("dotenv").config(); // loading .env variables 
+
+////////////////////////////////////////////////////////////////
+// Connect to Mongo
+////////////////////////////////////////////////////////////////
+const mongoose = require("mongoose");
+const DATABASE_URL = process.env.DATABASE_URL
+const CONFIG = {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}
+
+// connect to Mongo
+mongoose.connect(DATABASE_URL, CONFIG);
+
+// Connection Events
+mongoose.connection 
+.on("open", ()=>{console.log("Connected to Mongo")})
+.on("close", ()=>{console.log("Disconnect from Mongo")})
+.on("error", (error)=>{console.log(error)})
+
+////////////////////////////////////////////////////////////////
+// Export Connection
+////////////////////////////////////////////////////////////////
+module.exports = mongoose

@@ -55,6 +55,9 @@ List your routes in a table
 
 ## Challenges 
 
-- Detail roadblocks and anything you did to overcome them whether you did or didn't
+- A challenge erupted from when I was trying to create a form for creating new movies or shows. I found that it would be better to have the "type" section to be a checkbox rather than having the user type out "movie" or "show" in case of typos. However, I found that checkboxes allow you to select multiple choices and that would not work with my schema. I changed it to a "radio" to allow for only one choice between the two. Then, I had to make the value equal to either "movie" or "show". This returns that exact string of the value. 
 
+- Another challenge also came from the form. I have a nested object under my cast section in the schema. A form can't exactly have inputs for those nested object items. What I did to resolve this is to have a place to input for each of the nested items and allow the user to submit it. However, what happens behind the scenes is each of those items in the req.body are then set to equal to the nested object items using dot notation in the route object. 
+
+- I ran into a stop when I was creating the edit route. I rediscovered the issue with the "radio" button. I had to find a way to have the correct entertainment type selected depending on whether the entertainment was a show or movie. My solution was to create an if statement that said if the type was a movie then have that selected. Else, it would have show selected. 
 ## List of Technologies 

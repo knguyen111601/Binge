@@ -1,20 +1,48 @@
-// Import Dependencies
-const express = require("express")
+////////////////////////////////////////////////////////////////////////
+// Import Our Dependencies
+////////////////////////////////////////////////////////////////////////
+require("dotenv").config();
+const express = require("express");
+const morgan = require("morgan");
+const methodOverride = require("method-override");
+const path = require("path");
+const BingeRouter = require("./controllers/binge.js");
 
+////////////////////////////////////////////////////////////////////////
+// App Object
+////////////////////////////////////////////////////////////////////////
 
-// app object
-const app = express()
+const liquid = require("liquid-express-views");
 
-// route
+// Absolute path to views folder
+const viewsFolder = path.resolve(__dirname, "views/");
+
+// Create an app with liquid passing the path to views
+const app = liquid(express(), {root: viewsFolder});
+
+////////////////////////////////////////////////////////////////////////
+// Middleware
+////////////////////////////////////////////////////////////////////////
+// Morgan logging
+app.use(morgan("tiny"));
+// Method override to override request methods
+app.use(methodOverride("_method"));
+// Parse urlEncoded from form submissions
+app.use(express.urlencoded({extended: true}));
+// setup public folder to server files statically
+app.use(express.static("public"));
+
+////////////////////////////////////////////////////////////////////////
+// Routes (router)
+////////////////////////////////////////////////////////////////////////
 app.get("/", (req, res)=>{
     res.send("this app is working")
 })
 
-// IDEA FOR PROJECT
-// WATCH TODO LIST FOR SHOWS/MOVIES
+app.use("/binge", BingeRouter);
 
-
-
+////////////////////////////////////////////////////////////////////////
 // Listener 
+////////////////////////////////////////////////////////////////////////
 const PORT = process.env.PORT || 3000
 app.listen(PORT, ()=>{console.log(`Listening on port ${PORT}`)})

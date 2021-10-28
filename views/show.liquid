@@ -1,0 +1,43 @@
+{% layout "layout.liquid" %}
+
+{% block content %} 
+<style>
+    img {
+        width: 30%;
+    }
+</style>
+
+<div>
+<h1>{{movie.title}}</h1>
+<p>{{movie.releaseDate}}</p>
+<img src="{{movie.img}}">
+</div>
+
+<div>
+    <h3>Overview</h3>
+    <p>{{movie.desc}}</p>
+    <h4>Directed by:</h4>
+    <p>{{movie.director}}</p>
+    <h4>Cast</h4>
+    <ul>
+        <li>
+            <p>{{movie.cast.cast1}}</p>
+        </li>
+        <li>
+            <p>{{movie.cast.cast2}}</p>
+        </li>
+        <li>
+            <p>{{movie.cast.cast3}}</p>
+        </li>
+    </ul>
+        <a href="/binge/{{movie._id}}/edit">
+            <button>EDIT</button>
+        </a>
+
+
+        <form action="/binge/{{movie._id}}/?_method=DELETE" method="post">
+            <button>DELETE</button>
+        </form> 
+</div>
+
+{% endblock %}

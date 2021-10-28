@@ -1,0 +1,131 @@
+body {
+    width: 80%;
+    margin: auto;
+    overflow-x: hidden;
+}
+
+.scroll {
+    display: flex;
+    overflow-x: scroll;
+}
+
+.addNew {
+    width: 300px;
+}
+
+.addNew a {
+    text-decoration: none;
+    color: black;
+}
+
+.card a {
+    width: 300px;
+    text-decoration: none;
+    text-align: center;
+    margin-right: 10px;
+}   
+
+.poster {
+    width: 300px;
+    height: 500px;
+    object-fit: cover;
+}
+
+.carousel a{
+    width: 100%;
+    height: 800px;
+    object-fit: cover;
+    display: none;
+}
+
+.carousel a img{
+    width: 100%;
+    height: 800px;
+    object-fit: cover;
+    display: none;
+}
+
+.carousel a:first-of-type{
+    display: block;
+}
+
+.carousel a img:first-of-type{
+    display: block;
+}
+
+.two { 
+    object-position: top;
+}
+
+.one {
+    object-position: 50% 50%;
+}
+
+.back {
+    transform: scaleX(-1);
+}
+
+
+.buttonsDiv {
+    position: absolute;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15%;
+}
+
+.buttonsDiv button {
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border: none;
+}
+
+.buttonsDiv button:hover {
+    cursor: pointer;
+}
+
+.buttonsDiv button img {
+    width: 30px;
+    height: 30px;
+    filter: invert(100%)
+}
+
+@media only screen and (max-width: 658px) {
+    .card a {
+        width: 200px;
+        text-decoration: none;
+        text-align: center;
+        margin-right: 10px;
+    }   
+    
+    .poster {
+        width: 200px;
+        height: 300px;
+        object-fit: cover;
+    }
+    .carousel a{
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        display: none;
+    }
+    
+    .carousel a img{
+        width: 100%;
+        height: 400px;
+        display: none;
+    }
+    
+    .carousel a:first-of-type{
+        display: none;
+    }
+    
+    .carousel a img:first-of-type{
+        display: none;
+    }
+    
+    .back {
+        transform: scaleX(-1);
+    }
+}

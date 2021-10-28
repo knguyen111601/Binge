@@ -1,0 +1,63 @@
+* {
+    font-family: 'Bebas Neue', cursive;
+}
+
+.brand {
+    text-decoration: none;
+    color: #ee5155;
+    font-size: 3em;
+}
+
+.active {
+    font-size: 1.5em;
+    margin-top: 15px;
+    border-left: 2px solid darkgray;
+    color: black;
+}
+
+.topnav {
+    overflow: hidden;
+    background-color: #e9e9e9;
+    width: 100vw;
+    position: relative;
+    left: calc(-50vw + 50%);
+}
+.topnav a {
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+.topnav input[type=text] {
+    background-color: #ddd;
+    padding: 6px;
+    margin-top: 20px;
+    font-size: 17px;
+    border: none;
+}
+
+.topnav .search-container {
+    float: right;
+}
+
+.topnav .search-container button {
+    float: right;
+    padding: 6px 10px;
+    margin-top: 20px;
+    margin-right: 16px;
+    background: #ddd;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+}
+
+.footer {
+    margin-top: 20px;
+    height: 200px;
+    width: 100vw;
+    position: relative;
+    left: calc(-50vw + 50%);
+    background-color: #e9e9e9;
+}
