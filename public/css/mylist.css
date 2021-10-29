@@ -3,8 +3,14 @@
     margin: auto;
 }
 
+.header {
+    font-size: 3em;
+    margin-bottom: 0;
+}
+
 .scroll {
     display: flex;
+    overflow-x: scroll;
 }
 
 .card {
@@ -47,4 +53,27 @@
 }
 .poster:hover{
     border: 2px solid darkgray;
+}
+
+@media only screen and (max-width: 658px) {
+    .card {
+        width: 100px;
+        height: 500px;
+    }
+    .card a {
+        height: 500px;
+        width: 100px;
+    }
+    .card a h1 {
+        font-size: 1em;
+    }
+    .poster {
+        width: 250px;
+        height: 500px;
+    }
+    .header {
+        font-size: 3em;
+        margin-bottom: 0;
+        text-align: center;
+    }
 }

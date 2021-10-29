@@ -125,10 +125,13 @@ body {
         display: none;
     }
     
-    .back {
-        transform: scaleX(-1);
-    }
     .buttonsDiv {
         display: none;
+    }
+    .home {
+        text-align: center;
+    }
+    .addNew {
+        font-size: .7em;
     }
 }

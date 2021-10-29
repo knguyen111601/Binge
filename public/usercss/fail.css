@@ -1,0 +1,79 @@
+* {
+    font-family: 'Bebas Neue', cursive;
+}
+body {
+    overflow: hidden;
+    background: rgb(223,83,50);
+    background: linear-gradient(90deg, rgba(223,83,50,1) 0%, rgba(221,91,91,1) 46%, rgba(242,35,35,1) 100%);
+}
+
+.title {
+    color: whitesmoke;
+    font-size: 6em;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.whole {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 200px;
+}
+
+.box {
+    display: flex;
+    margin: auto;
+    width: 350px;
+    height: 500px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-evenly;
+    background-color: whitesmoke;
+}
+
+.options {
+    display: flex;
+}
+
+.options a {
+    margin-right: 20px;
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+.options a button {
+    font-size: 1.2em;
+    color: whitesmoke;   
+    background-color: #ee5155;
+    border: 2px solid transparent;
+    border-radius: 20px;
+    width: 100px;
+    height: 50px;
+}
+
+.options a button:hover {
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 658px){
+    .whole {
+        margin-top: 0;
+    }
+    .title {
+        color: whitesmoke;
+        font-size: 3em;
+        margin-bottom: 0;
+    }
+    .box {
+        width: 300px;
+        height: 400px;
+    }
+    .options a {
+        text-decoration: none;
+        font-size: 1em;
+    }
+}

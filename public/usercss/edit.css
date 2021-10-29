@@ -1,0 +1,53 @@
+.pfp {
+    height: 200px;
+    width: 200px;
+}
+
+.form {
+    display: flex;
+    margin: auto;
+    margin-top: 20px;
+    flex-direction: column;
+    align-items: center;
+    height: 600px;
+    width: 400px;
+    border: 2px solid darkgray;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.inputs .textInput{
+    width: 300px;
+    height: 30px;
+    margin-bottom: 20px;
+}
+
+.submit {
+    border: 1px solid transparent;
+    border-radius: 10px;
+    width: 200px;
+    height: 50px;
+    margin: auto;
+    margin-bottom: 70px;
+    background-color: #ee5155;
+    color: white;
+    font-size: 1.3em;
+}
+
+@media only screen and (max-width:658px) {
+    .form {
+        margin-top: 20px;
+        height: 600px;
+        width: 300px;
+    }
+    .inputs .textInput {
+        height: 20px;
+        width: 200px;
+    }
+}

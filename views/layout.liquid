@@ -21,7 +21,7 @@
     <div class="topnav">
         <a href="/binge" class="brand">BINGE</a>
         <a class="active" href="/binge/mylist">My List</a>
-        <button class="user"></button>
+        <div class="user"><img class="pfp" src="{{user[0].pfp}}"></div>
         <div class="search-container">
             <form action="/binge/search" method="post">
               <input type="text" placeholder="Search.." name="search">
@@ -32,10 +32,10 @@
     <div class="optionsBox">
     <div class="options">
         <div class=optionItem>
-        <h1>Edit Profile</h1>
+        <h1><a href="/user/edit">Edit Profile</a></h1>
         </div>
         <div class=optionItem>
-        <h1>My List</h1>
+            <h1><a href="/binge/mylist">My List</a></h1>
         </div>
 
         <div class=optionItem>

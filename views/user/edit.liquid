@@ -1,0 +1,17 @@
+{% layout "layout.liquid" %} 
+
+{% block content %} 
+<link rel="stylesheet" href="/usercss/edit.css">
+
+
+<form class="form" action="/user" method="post">
+    <h1>Edit</h1>
+    <img class="pfp" src={{user[0].pfp}}>
+    
+    <div class="inputs">
+    <input class="textInput" type="text" name="pfp" placeholder="Insert Image URL">
+    <input class="submit" type="submit">
+    </div>
+
+</form>
+{% endblock %}

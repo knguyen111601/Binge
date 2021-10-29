@@ -1,0 +1,94 @@
+.form {
+    display: flex;
+    margin: auto;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    flex-direction: column;
+    border: 2px solid darkgray;
+    width: 400px;
+    height: 900px;
+}
+
+.form h1 {
+    text-align: center;
+}
+
+legend {
+    text-align: left;
+}
+
+.area {
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+    margin: auto;
+}
+
+.area input{
+    width: 300px;
+    height: 30px;
+    margin-bottom: 20px;
+}
+
+.areaTwo {
+    width: 300px;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+.areaTwo input {
+    margin-right: 90px;
+}
+
+.cast {
+    width: 300px;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.cast input {
+    width: 300px;
+    margin-bottom: 20px;
+    height: 30px;
+}
+
+.submit {
+    border: 1px solid transparent;
+    border-radius: 10px;
+    width: 200px;
+    height: 50px;
+    margin: auto;
+    margin-bottom: 70px;
+    background-color: #ee5155;
+    color: white;
+    font-size: 1.3em;
+}
+
+.area .description {
+    height: 80px;
+}
+
+@media only screen and (max-width: 658px) {
+    .form {
+        margin-top: 20px;
+        height: 900px;
+        width: 300px;
+    }
+    .area input {
+        height: 20px;
+        width: 200px;
+    }
+    .areaTwo {
+        width: 200px;
+    }
+    .areaTwo input {
+        margin-right: 30px;
+    }
+    .cast {
+        width: 200px;
+    }
+    .cast input {
+        width: 200px;
+    }
+}
+

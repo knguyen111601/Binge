@@ -1,48 +1,49 @@
 {% layout "layout.liquid" %} 
 
 {% block content %} 
+<link rel="stylesheet" href="/css/form.css">
 
-<h1>Create New Movie/Show</h1>
-
-<form action="/binge" method="post">
+<form class="form" action="/binge" method="post">
+    <h1>Create New Movie/Show</h1>
+    <div class="area">
     <legend>Title</legend>
-    <div>
-    <input type="text" name="title" required>
+    <input type="text" name="title" placeholder="Title" required>
     </div>
 
+
+    <div class="areaTwo">
     <legend>Type</legend>
-    <div>
-    Movie:<input type="radio" name="type" value="movie" required>
-    Show:<input type="radio" name="type" value="show" required>
+    Movie:<input class="radio" type="radio" name="type" value="movie" required>
+    Show:<input class="radio" type="radio" name="type" value="show" required>
     </div>
-
+    
+    <div class="area">
     <legend>Release Date</legend>
-    <div>
     <input type="text" name="releaseDate" placeholder="Year">
     </div>
 
+    <div class="area">
     <legend>Poster</legend>
-    <div>
     <input type="text" name="img" placeholder="Image URL">
     </div>
-
+    
+    <div class="area">
     <legend>Description</legend>
-    <div>
-        <input type="text" name="desc">
+        <input class="description" type="text" name="desc" placeholder="Description">
     </div>
-
+    
+    <div class="area">
     <legend>Directed By:</legend>
-    <div>
-        <input type="text" name="director">
+        <input type="text" name="director" placeholder="Director">
     </div>
 
+    <div class="cast">
     <legend>Cast</legend>
-    <div>
-        <input type="text" name="cast1">
-        <input type="text" name="cast2">
-        <input type="text" name="cast3">
+        <input type="text" name="cast1" placeholder="First Cast Member">
+        <input type="text" name="cast2" placeholder="Second Cast Member">
+        <input type="text" name="cast3" placeholder="Third Cast Member">
     </div>
-    <input type="submit">
+    <input class="submit" type="submit">
 </form>
 
 

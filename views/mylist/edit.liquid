@@ -1,55 +1,57 @@
 {% layout "layout.liquid" %} 
 
 {% block content %} 
-<h1>Edit "{{movie.title}}"</h1>
+<link rel="stylesheet" href="/css/form.css">
 
-<form action="/binge/mylist/{{movie._id}}/?_method=PUT" method="post">
+<form class="form" action="/binge/mylist/{{movie._id}}/?_method=PUT" method="post">
+    <h1>Edit "{{movie.title}}"</h1>
+
+    <div class="area">
     <legend>Title</legend>
-    <div>
     <input type="text" name="title" value="{{movie.title}}"" required>
     </div>
 
     {% if movie.type == "movie" %} 
+    <div class="areaTwo">
     <legend>Type</legend>
-    <div>
     Movie:<input type="radio" name="type" value="movie" required checked>
     Show:<input type="radio" name="type" value="show" required>
     </div>
     {% else %} 
+    <div class="areaTwo">
     <legend>Type</legend>
-    <div>
-    Movie:<input type="radio" name="type" value="movie" required>
-    Show:<input type="radio" name="type" value="show" required checked>
+    Movie:<input class="radio" type="radio" name="type" value="movie" required>
+    Show:<input class="radio" type="radio" name="type" value="show" required checked>
     </div>
     {% endif %}
 
+    <div class="area">
     <legend>Release Date</legend>
-    <div>
     <input type="text" name="releaseDate" value="{{movie.releaseDate}}">
     </div>
 
+    <div class="area">
     <legend>Poster</legend>
-    <div>
     <input type="text" name="img" value="{{movie.img}}">
     </div>
 
+    <div class="area">
     <legend>Description</legend>
-    <div>
         <input type="text" name="desc" value="{{movie.desc}}">
     </div>
 
+    <div class="area">
     <legend>Directed By:</legend>
-    <div>
         <input type="text" name="director" value="{{movie.director}}">
     </div>
 
+    <div class="cast">
     <legend>Cast</legend>
-    <div>
         <input type="text" name="cast1" value="{{movie.cast.cast1}}">
         <input type="text" name="cast2" value="{{movie.cast.cast2}}">
         <input type="text" name="cast3" value="{{movie.cast.cast3}}">
     </div>
-    <input type="submit">
+    <input class="submit" type="submit">
 </form>
 
 

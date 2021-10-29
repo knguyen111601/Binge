@@ -1,0 +1,75 @@
+* {
+    font-family: 'Bebas Neue', cursive;
+}
+body {
+    overflow: hidden;
+    background: rgb(223,83,50);
+    background: linear-gradient(90deg, rgba(223,83,50,1) 0%, rgba(221,91,91,1) 46%, rgba(242,35,35,1) 100%);
+}
+.all {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+.signup, .login {
+    margin: auto;
+    width: 40%;
+    height: 110%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.signup a button {
+    font-size: 1.5em;
+    width: 200px;
+    border: none;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    background-color: #ee5155;
+    color: white;
+}
+
+.signup a button:hover {
+    cursor: pointer;
+}
+
+.login a button {
+    font-size: 1.5em;
+    width: 200px;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    background-color: #ee5155;
+    color: white;
+}
+
+.login a button:hover {
+    cursor: pointer;
+}
+
+.block {
+    display: flex;
+    height: 500px;
+    width: 400px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 10px;
+    border: 2px solid lightgray;
+}
+
+@media only screen and (max-width: 658px) {
+    .all {
+        flex-direction: column;
+    }
+    .signup, .login {
+        width: 100%;
+        height: 50%;
+        top: 0;
+        left: 0;
+    }
+}

@@ -1,0 +1,8 @@
+{% layout "layout.liquid" %} 
+{% block content %} 
+<link rel="stylesheet" href="/usercss/edit.css">
+
+<h1>{{user[0].username}}</h1>
+<img class="pfp" src="{{user[0].pfp}}">
+
+{% endblock %}

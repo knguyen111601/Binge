@@ -5,6 +5,7 @@ const express = require("express");
 const Movies = require("../models/movies.js");
 const moviesSeed = require("../models/seed.js")
 const MyList = require("../models/mylist.js")
+const Users = require("../models/user.js")
 ////////////////////////////////////////////////////////////////////////
 // Create Router
 ////////////////////////////////////////////////////////////////////////
@@ -42,7 +43,10 @@ router.get("/seed", (req, res)=>{
 router.get("/", (req, res)=>{
     Movies.find({}).sort({order: 1})
     .then((movies)=>{
-        res.render("index.liquid", {movie: movies})
+        Users.find({username: req.session.username})
+        .then((user)=>{
+            res.render("index.liquid", {movie: movies, user: user})
+        })
     })
     .catch((error) => {
         res.json({error})
@@ -50,7 +54,10 @@ router.get("/", (req, res)=>{
 });
 // New route - get request to "/binge/new", returns a form to create a new movie/show
 router.get("/new", (req, res)=>{
-    res.render("new.liquid");
+    Users.find({username: req.session.username})
+        .then((user)=>{
+            res.render("new.liquid", {user: user});
+        })
 })
 
 
@@ -95,7 +102,10 @@ router.get("/:id/edit", (req, res)=>{
     const id = req.params.id
     Movies.findById(id)
     .then((movie)=>{
-        res.render("edit.liquid", {movie: movie})
+        Users.find({username: req.session.username})
+        .then((user)=>{
+            res.render("edit.liquid", {movie: movie, user: user})
+        })
     })
     .catch((error) => {
         res.json({error})
@@ -143,7 +153,11 @@ router.post("/search", (req, res)=>{
 router.get("/mylist", (req, res)=>{
     MyList.find({username: req.session.username})
     .then((movie)=>{
-            res.render("mylist.liquid", {movie: movie})
+        Users.find({username: req.session.username})
+        .then((user)=>{
+            res.render("mylist.liquid", {movie: movie, user: user})
+        })
+
     })
 })
 
@@ -186,11 +200,14 @@ router.delete("/mylist/:id", (req, res)=>{
 
 
 // Edit Route
-router.get("/:id/edit", (req, res)=>{
+router.get("/mylist/:id/edit", (req, res)=>{
     const id = req.params.id
     MyList.findById(id)
     .then((movie)=>{
-        res.render("edit.liquid", {movie: movie})
+        Users.find({username: req.session.username})
+        .then((user)=>{
+            res.render("mylist/edit.liquid", {movie: movie, user: user})
+        })
     })
     .catch((error) => {
         res.json({error})
@@ -227,8 +244,10 @@ router.get("/mylist/:id", (req, res)=>{
     const id = req.params.id
     MyList.findById(id)
     .then((movies)=>{
-        console.log(movies)
-        res.render("mylist/show.liquid", {movie: movies})
+        Users.find({username: req.session.username})
+        .then((user)=>{
+            res.render("mylist/show.liquid", {movie: movies, user: user})
+        })
     })
 })
 
@@ -237,8 +256,10 @@ router.get("/:id", (req, res)=>{
     const id = req.params.id
     Movies.findById(id)
     .then((movies)=>{
-        console.log(movies)
-        res.render("show.liquid", {movie: movies})
+        Users.find({username: req.session.username})
+        .then((user)=>{
+            res.render("show.liquid", {movie: movies, user: user})
+        })
     })
 })
 

@@ -5,21 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/usercss/signup.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div>
+    <h1 class="title">BINGE</h1>
+    <div class="whole">
         <form action="/user/signup" method="post">
         <fieldset>
-            <legend>New User</legend>
+            <h1>Signup</h1>
             <label>
-                Username: <input type="text" name="username" required>
+                Username <input type="text" name="username" required>
             </label>
             
             <label>
-                Password: <input type="password" name="password" required>
+                Password <input type="password" name="password" required>
             </label>
     
-            <input type="submit" value="Create Account">
+            <input class="submit" type="submit" value="Create Account">
+            <a href="/user/login">Already have an account? Login here.</a>
         </fieldset>
         </form>
     </div>

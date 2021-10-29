@@ -1,6 +1,6 @@
 
 .body {
-    width: 80%;
+    width: 60%;
     margin: auto;
     display: flex;
     justify-content: center;
@@ -11,11 +11,12 @@
 }
 
 .title img {
-    width: 70%;
+    width: 60%;
 }
 
 .desc {
     width: 50%;
+    margin-top: 100px;
 }
 
 .desc article {
@@ -46,8 +47,23 @@
     background-color: transparent;
     border: none;
     font-size: 1em;
+    cursor: pointer;
 }
 
+.addto {
+    display: flex;
+    justify-content: center;
+}
+
+.addto button {
+    border: none;
+    border-radius: 10px;
+    height: 50px;
+    width: 200px;
+    font-size: 1.5em;
+    background-color: #ee5155;
+    color: white;
+}
 
 @media only screen and (max-width: 768px) {
     .body {
@@ -62,5 +78,16 @@
 
     .desc {
         width: 100%;
+        margin-top: 0;
+    }
+    .cOneImg {
+        height: 100px;
+        width: 70px;
+        display: block;
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+    p {
+        font-size: .8em;
     }
 }

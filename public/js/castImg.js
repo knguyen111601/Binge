@@ -31,13 +31,13 @@ if ($(`p:contains("Jon Favreau")`)) {
 // Gwyneth Paltrow
 if ($(`p:contains("Gwyneth Paltrow")`)) {
     const img = $(`p:contains("Gwyneth Paltrow")`)
-    img.prepend($("<img>").attr("src", "https://m.media-amazon.com/images/M/MV5BNzIxOTQ1NTU1OV5BMl5BanBnXkFtZTcwMTQ4MDY0Nw@@._V1_UX214_CR0,0,214,317_AL_.jpg").addClass("cOneImg"));
+    img.prepend($("<img>").attr("src", "https://i.imgur.com/z25iWxd.jpeg").addClass("cOneImg"));
 }
 
 // Chris Hemsworth
 if ($(`p:contains("Chris Hemsworth")`)) {
     const img = $(`p:contains("Chris Hemsworth")`)
-    img.prepend($("<img>").attr("src", "https://i.imgur.com/z25iWxd.jpg").addClass("cOneImg"));
+    img.prepend($("<img>").attr("src", "https://i.imgur.com/pC9LNVx.jpg").addClass("cOneImg"));
 }
 
 // Natalie Portman
@@ -326,4 +326,10 @@ if ($(`p:contains("Paul Bettany")`)) {
 if ($(`p:contains("Kathryn Hahn")`)) {
     const img = $(`p:contains("Kathryn Hahn")`)
     img.prepend($("<img>").attr("src", "https://i.imgur.com/HrotfhH.jpg").addClass("cOneImg"));
+}
+
+// Hailee Steinfeld
+if ($(`p:contains("Hailee Steinfeld")`)) {
+    const img = $(`p:contains("Hailee Steinfeld")`)
+    img.prepend($("<img>").attr("src", "https://i.imgur.com/V07clrd.jpg").addClass("cOneImg"));
 }

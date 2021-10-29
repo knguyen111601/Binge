@@ -4,6 +4,7 @@
 const express = require("express");
 const User = require("../models/user");
 const bcrypt = require("bcryptjs");
+const { application } = require("express");
 
 ////////////////////////////////////////////////////////////////////////
 // Create Router
@@ -74,6 +75,34 @@ router.get("/logout", (req, res)=>{
     req.session.destroy((err)=>{
         // send user back to main page
         res.redirect("/")
+    })
+})
+
+// View User Profile
+router.get("/", (req, res)=>{
+    User.find({username: req.session.username})
+    .then((user)=>{
+        res.render("user/user.liquid", {user: user})
+    })
+})
+
+// Edit Profile Route
+router.get("/edit", (req, res)=>{
+    let id = req.params.id
+    id = req.session.username
+    User.find({username: id})
+    .then((user)=>{
+        res.render("user/edit.liquid", {user: user})
+    })
+})
+
+// Update
+router.post("/", (req,res)=>{
+    let id = req.params.id
+    id = req.session.username
+    User.findOneAndUpdate({username: id}, {pfp: req.body.pfp}, {new: true})
+    .then((user)=>{
+        res.redirect("/binge")
     })
 })
 ////////////////////////////////////////////////////////////////////////
