@@ -17,6 +17,7 @@ const MyListSchema = new Schema({
     img: String,
     desc: String,
     director: String,
+    rating: {type: Number, default: 0},
     cast: {
         cast1: String,
         cast2: String,

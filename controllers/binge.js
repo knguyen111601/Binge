@@ -168,9 +168,9 @@ router.post("/mylist", (req,res)=>{
         const nest = {
             title: movie.title,
             type: movie.type,
-            releaseDate: req.body.releaseDate,
+            releaseDate: movie.releaseDate,
             img: movie.img,
-            desc: movie.img,
+            desc: movie.desc,
             director: movie.director,
             cast: {
                 cast1: movie.cast.cast1,
@@ -250,6 +250,62 @@ router.get("/mylist/:id", (req, res)=>{
         })
     })
 })
+
+// Rating System
+router.put("/mylist/:id/rate1", (req, res)=>{
+    const id = req.params.id
+    MyList.findByIdAndUpdate(id, {rating: 1})
+    .then(()=>{
+        res.redirect(`/binge/mylist/${id}`)
+    })
+})
+
+router.put("/mylist/:id/rate2", (req, res)=>{
+    const id = req.params.id
+    MyList.findByIdAndUpdate(id, {rating: 2})
+    .then(()=>{
+        res.redirect(`/binge/mylist/${id}`)
+    })
+})
+
+router.put("/mylist/:id/rate3", (req, res)=>{
+    const id = req.params.id
+    MyList.findByIdAndUpdate(id, {rating: 3})
+    .then(()=>{
+        res.redirect(`/binge/mylist/${id}`)
+    })
+    
+})
+
+router.put("/mylist/:id/rate4", (req, res)=>{
+    const id = req.params.id
+    MyList.findByIdAndUpdate(id, {rating: 4})
+    .then(()=>{
+        res.redirect(`/binge/mylist/${id}`)
+    })
+})
+
+router.put("/mylist/:id/rate5", (req, res)=>{
+    const id = req.params.id
+    MyList.findByIdAndUpdate(id, {rating: 5})
+    .then(()=>{
+        res.redirect(`/binge/mylist/${id}`)
+    })
+})
+
+// Watched Route
+router.post("/mylist/:id", (req, res)=>{
+    const id = req.params.id
+    MyList.findByIdAndUpdate(id, {type: "watched"})
+    .then((movie)=>{
+        res.redirect("/binge/mylist")
+    })
+})
+
+
+
+
+
 
 // Show Route - get request to "/binge/:id, returns that particular movie or show
 router.get("/:id", (req, res)=>{

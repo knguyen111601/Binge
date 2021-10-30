@@ -102,7 +102,7 @@ router.post("/", (req,res)=>{
     id = req.session.username
     User.findOneAndUpdate({username: id}, {pfp: req.body.pfp}, {new: true})
     .then((user)=>{
-        res.redirect("/binge")
+        res.redirect("/user")
     })
 })
 ////////////////////////////////////////////////////////////////////////

@@ -6,6 +6,16 @@
     justify-content: center;
 }
 
+.rate {
+    font-size: 1.3em;
+}
+
+.ratings {
+    display: flex;
+    width: 50%;
+    justify-content: space-between;
+}
+
 .title {
     width: 50%;
 }

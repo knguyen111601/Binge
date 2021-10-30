@@ -16,6 +16,52 @@
 </div>
 
 <div class="desc">
+    {% if movie.type == "watched" %}
+    <h3>Your Rating</h3>
+    <div class="ratings">
+    <form action="/binge/mylist/{{movie._id}}/rate1/?_method=put" method="post">
+        {% if movie.rating >= 1 %}
+        <button class="rate sone" style="color: gold">★</button>
+        {% else %}
+        <button class="rate sone">★</button>
+        {% endif %}
+    </form>
+    
+    <form action="/binge/mylist/{{movie._id}}/rate2/?_method=put" method="post">
+        {% if movie.rating >= 2 %}
+        <button class="rate stwo" style="color: gold">★</button>
+        {% else %}
+        <button class="rate stwo">★</button>
+        {% endif %}
+    </form>
+
+    <form action="/binge/mylist/{{movie._id}}/rate3/?_method=put" method="post">
+        {% if movie.rating >= 3 %}
+        <button class="rate sthree" style="color: gold">★</button>
+        {% else %}
+        <button class="rate sthree">★</button>
+        {% endif %}
+    </form>
+
+    <form action="/binge/mylist/{{movie._id}}/rate4/?_method=put" method="post">
+        {% if movie.rating >= 4 %}
+        <button class="rate sfour" style="color: gold">★</button>
+        {% else %}
+        <button class="rate sfour">★</button>
+        {% endif %}
+    </form>
+
+    <form action="/binge/mylist/{{movie._id}}/rate5/?_method=put" method="post">
+        {% if movie.rating >= 5 %}
+        <button class="rate sfive" style="color: gold">★</button>
+        {% else %}
+        <button class="rate sfive">★</button>
+        {% endif %}
+    </form>
+    </div>
+    {% endif %}
+
+
     <h3>Overview</h3>
     <article>{{movie.desc}}</article>
     <h4>Directed by:</h4>

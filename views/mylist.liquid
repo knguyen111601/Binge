@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="/css/mylist.css">
 <div class="body">
 <h1 class="header">My list</h1>
+<p class="once">Once you watch a movie/show, you can click the check to add it to the watch list and rate them!</p>
 
 
 
@@ -15,9 +16,14 @@
     
     {% for movie in movie %} 
     {% if movie.type =="movie" %} 
-        <a href="/binge/mylist/{{movie._id}}">
+        
+        <a class="movie" href="/binge/mylist/{{movie._id}}">
             <img class="poster" src="{{movie.img}}">
+            <form class="watched" action="/binge/mylist/{{movie._id}}" method="post">
+                <button>✓</button>
+            </form>
         </a>
+
         {% endif %}
     {% endfor %}
 
@@ -34,13 +40,37 @@
 
     {% for movie in movie %} 
     {% if movie.type =="show" %} 
-        <a href="/binge/mylist/{{movie._id}}">
+        <a class="movie" href="/binge/mylist/{{movie._id}}">
             <img class="poster" src="{{movie.img}}">
+            <form class="watched" action="/binge/mylist/{{movie._id}}" method="post">
+                <button>✓</button>
+            </form>
+        </a>
+        {% endif %}
+    {% endfor %}
+
+</div>
+
+<h1>Watched</h1>
+<div class="scroll">
+    <div class="card">
+        <a href="/binge"><h1>Watched</h1></a>
+    </div>
+
+    {% for movie in movie %} 
+    {% if movie.type =="watched" %} 
+        <a class="movie" href="/binge/mylist/{{movie._id}}">
+            <img class="poster" src="{{movie.img}}">
+            <form class="watched" action="/binge/mylist/{{movie._id}}/?_method=DELETE" method="post">
+                <button>-</button>
+            </form> 
         </a>
         {% endif %}
     {% endfor %}
 
 </div>
 </div>
+
+
 
 {% endblock%}

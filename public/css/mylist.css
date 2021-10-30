@@ -8,6 +8,11 @@
     margin-bottom: 0;
 }
 
+.once {
+    opacity: 60%;
+    margin-top: 0;
+}
+
 .scroll {
     display: flex;
     overflow-x: scroll;
@@ -55,14 +60,42 @@
     border: 2px solid darkgray;
 }
 
+.movie {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    margin-right: 20px;
+}
+
+.watched {
+    width: max-content;
+    height: max-content;
+    position: absolute;
+    margin-left: 280px;
+}
+
+.watched button {
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    font-size: 1em;
+    cursor: pointer;
+    border: .5px solid darkgray;
+}
+
+.watched button:hover {
+    border: 1px solid green;
+    color: green;
+}
+
 @media only screen and (max-width: 658px) {
     .card {
-        width: 100px;
+        width: 150px;
         height: 500px;
     }
     .card a {
         height: 500px;
-        width: 100px;
+        width: 150px;
     }
     .card a h1 {
         font-size: 1em;
@@ -75,5 +108,11 @@
         font-size: 3em;
         margin-bottom: 0;
         text-align: center;
+    }
+    .watched {
+        margin-left: 230px;
+    }
+    .watched button {
+        font-size: 1em;
     }
 }
