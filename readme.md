@@ -13,7 +13,7 @@ The tools I will be using are:
 5. Mongoose
 6. MongoDB
 7. Method-Override
-8. AJAX? Not sure as this was my idea for grabbing movies and shows like we had before
+
 
 ## Models
 
